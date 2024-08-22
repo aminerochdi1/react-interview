@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+  padding: 16px;
+  margin: 8px;
+  max-width: fit-content;
+  /* width: calc(100% - 16px); */
+}
+
+.movies-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.rating-bar {
+  background: #ccc;
+  height: 10px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.likes {
+  background:transparent;
+  height: 100%;
+  color:black
+}

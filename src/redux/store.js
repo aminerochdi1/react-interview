@@ -1,5 +1,5 @@
 import { 
-    configureStore as createStore,
+    createStore ,
      combineReducers } from 'redux';
 import moviesReducer from './reducers/moviesReducer';
 

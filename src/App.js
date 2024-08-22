@@ -1,25 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+// [Font]
+// import '@fontsource/inter';
 
-function App() {
+import React, { useState, useEffect } from 'react';
+
+// Redux
+import { Provider,useSelector  } from 'react-redux';
+import store from './redux/store';
+import MoviesList from './components/MoviesList';
+import CategoryFilter from './components/CategoryFilter';
+import Pagination from './components/Pagination';
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+
+        <CategoryFilter/>
+        <MoviesList/>
+
+      </div>
+    </Provider>
   );
-}
+};
 
 export default App;
