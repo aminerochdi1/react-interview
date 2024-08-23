@@ -7,6 +7,10 @@ import React, { useState,useEffect } from 'react';
 
 import MoviesPerPage from './components/MoviesPerPage';
 
+// MaterialUI
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
 // Redux
 import { Provider,useSelector  } from 'react-redux';
 import store from './redux/store';
@@ -24,6 +28,11 @@ const App = () => {
   const [moviesPerPage,setMoviesPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
+
+  const handleMoviesPerPageChange = (newMoviesPerPage) => {
+    setMoviesPerPage(newMoviesPerPage);
+    setCurrentPage(1); 
+  };
 
   const movies = useSelector(state => state.movies.filteredMovies);
   const totalMovies = movies.length;
@@ -45,7 +54,7 @@ const App = () => {
 
         <CategoryFilter/>
         <MoviesList movies={currentMovies} />
-        <MoviesPerPage/>
+        <MoviesPerPage onMoviesPerPageChange={handleMoviesPerPageChange} />
         <Pagination
         totalMovies={totalMovies}
         moviesPerPage={moviesPerPage}
@@ -59,3 +68,5 @@ const App = () => {
 };
 
 export default App;
+
+
