@@ -37,11 +37,19 @@
   }
 }
 
+body
+{
+  /* background-color: rgba(0, 0, 0, 0.743); */
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
 
 .movie-card {
   display: flex;
   flex-direction: column;
   padding: 16px;
+  backdrop-filter: blur(15px);
   margin: 8px;
 }
 

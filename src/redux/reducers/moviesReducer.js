@@ -30,15 +30,30 @@ const initialState = {
         // End[Supprimer un film]
 
         // Start[favoriser/disfavoriser un film]
+
+      // case 'TOGGLE_LIKE_DISLIKE':
+      //   return {
+      //     ...state,
+      //     filteredMovies: state.filteredMovies.map(movie =>
+      //       movie.id === action.payload
+      //         ? { ...movie, liked: !movie.liked, likes: movie.liked ? movie.likes - 1 : movie.likes + 1 }
+      //         : movie
+      //     ),
+      //   };
+
       case 'TOGGLE_LIKE_DISLIKE':
-        return {
-          ...state,
-          filteredMovies: state.filteredMovies.map(movie =>
-            movie.id === action.payload
-              ? { ...movie, liked: !movie.liked, likes: movie.liked ? movie.likes - 1 : movie.likes + 1 }
-              : movie
-          ),
-        };
+      return {
+        ...state,
+        filteredMovies: state.filteredMovies.map(movie =>
+          movie.id === action.payload
+            ? {
+                ...movie,
+                liked: !movie.liked,
+                likes: movie.liked ? movie.likes - 1 : movie.likes + 1
+              }
+            : movie
+        )
+      };
 
             // End[favoriser/disfavoriser un film]
 
