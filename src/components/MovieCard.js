@@ -13,9 +13,10 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
-// [Icon]
-import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
-// import DeleteIcon from '@mui/icons-material/DeleteIcon';
+
+// [Icons]
+import FavoriteBorderRoundedIcon from '@mui/icons-material/FavoriteBorderRounded';
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 
 import { useDispatch } from 'react-redux';
 import { toggleLikeDislike, deleteMovie } from '../redux/actions/moviesActions';
@@ -28,44 +29,53 @@ const MovieCard = ({movie}) => {
     return(
             <>
                                    <div className=" movie-card">
-                                   <Box sx={{ minWidth: 120 }}>
+                                   <Box style={{ width: 350 }}>
+
                                     <Card variant="outlined">
                                     <CardContent>
-                                        <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
+                                    {/* Start[Le titre en gras] */}
+                                        <Typography sx={{ fontSize: 18 , fontWeight: 'bold' }} color="text.secondary" >
                                         <h3><strong>
                                             {movie.title}
                                         </strong></h3>
                                         </Typography>
+                                        {/* End[Le titre en gras] */}
+
+                                       {/* Start[ la catégorie] */}
                                         <Typography variant="h5" component="div">
-                                        <p>{movie.category}</p>
+                                        <p>
+                                            {movie.category}
+                                        </p>
                                         </Typography>
-                                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                        {/* End[ la catégorie] */}
+
+
+                                        <Typography  color="text.secondary">
                                         <div
-                                        className="likes"
-                                        style={{ width: `${(movie.likes / (movie.likes + movie.dislikes)) * 100}%` }}
-                                        >
+                                        className="likes" >
+                                            <p>Likes: {movie.likes}</p>
                                         </div>
                                         </Typography>
                                     </CardContent>
-                                    <CardActions>
-                                    <button >
-                                        {movie.liked ? 'Dislike' : 'Like'}
-                                    </button>
-                                    <Stack spacing={3} alignItems="center">
-                                    <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-                                        <IconButton variant="solid" onClick={() => dispatch(toggleLikeDislike(movie.id))}>
-                                        <FavoriteBorder />
-                                        </IconButton>
-                                        <IconButton variant="solid">
-                                        {/* <DeleteIcon /> */}
-                                        </IconButton>
-                                    </Box>
-                                    </Stack>
 
-                                    <button onClick={() => dispatch(deleteMovie(movie.id))}>Delete</button>
+                                    <CardActions>
+
+                                    <Box sx={{ display: 'flex', gap: 4,  alignItems: 'center',alignContent: 'center' }}>
+                                        
+                                        <IconButton variant="solid" onClick={() => dispatch(toggleLikeDislike(movie.id))}>
+                                        <FavoriteBorderRoundedIcon />
+                                        </IconButton>
+
+                                         <IconButton onClick={() => dispatch(deleteMovie(movie.id))}>
+                                        <DeleteOutlineRoundedIcon/>
+                                        </IconButton>
+
+                                    </Box>
+
 
                                     </CardActions>
                                     </Card>
+
                                     </Box>
                                     </div>
 
